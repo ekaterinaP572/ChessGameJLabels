@@ -64,4 +64,8 @@ Implementieren Sie nun die folgenden 3 Hilfs-Methoden, bevor Sie sich um die Int
 
 Implementieren Sie nun die Methode `public void mouseMoved(MouseEvent e)` (welche vom Interface `MouseMotionListener` gefordert ist). Diese soll überprüfen, ob die Maus gerade über eine Figur bewegt wurde (Sie bekommen den Punkt, an dem sich die Maus gerade befindet, von einem `MouseEvent e` mit der Methode `e.getPoint()` als `java.awt.Point`-Objekt). Falls ja, soll die Figur sowie alle Felder auf dem Schachbrett, zu denen sie sich bewegen kann, hervorgehoben werden (und das GUI soll aktualisiert werden, damit die Veränderungen zu sehen sind).
 
+Wenn alles funktioniert, müssten Sie nun, wenn Sie die Maus über eine der Figuren bewegen, eine Hervorhebung der Felder, zu denen sie sich bewegen könnte, sehen:
+
+![Schachbrett 3](images/chess_draw3.png)
+
 Versuchen Sie, die Methode, wenn sie erstmal funktioniert, so effizient wie möglich zu implementieren: Wenn die Maus schon über einer Figur war und weiterhin über der selben Figur ist, muss nicht alles neu berechnet und gezeichnet werden! Genau so auch, wenn die Maus vorher über keiner Figur war und es jetzt immer noch nicht ist. Unnötige Zeichenoperationen und Berechnungen bei jeder Mausbewegung verlangsamen das Programm nur unnötig!
