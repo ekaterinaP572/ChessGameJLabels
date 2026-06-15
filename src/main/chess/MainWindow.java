@@ -9,6 +9,10 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //add(new GamePanelComponents(60));
         add(new DrawGamePanel(60));
-        setVisible(true);
+        pack();
+    }
+
+    static void main() {
+        new MainWindow().setVisible(true);
     }
 }
