@@ -1,6 +1,5 @@
-package chess;
+package chess.ui;
 
-import chess.ui.GamePanel;
 import chess.pieces.ChessBoard;
 import chess.pieces.ChessPiece;
 
@@ -8,14 +7,14 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-public class GamePanelDraw extends GamePanel implements MouseMotionListener {
+public class DrawGamePanel extends GamePanel implements MouseMotionListener {
     private Color highlightColor = new Color(125, 125, 255);
     private Color darkColor = Color.LIGHT_GRAY;
     private Color lightColor = Color.WHITE;
     private ChessBoard board;
     private int fieldSize = 60;
 
-    public GamePanelDraw(int fieldSize) {
+    public DrawGamePanel(int fieldSize) {
         super(fieldSize);
         board = new ChessBoard();
         setPreferredSize(new Dimension(fieldSize*8, fieldSize*8));
