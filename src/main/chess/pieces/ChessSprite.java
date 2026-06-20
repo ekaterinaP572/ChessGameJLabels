@@ -13,8 +13,8 @@ public abstract class ChessSprite {
     public ChessSprite(String imagefile, String highlightedImageFile, int boardX, int boardY){
         this.boardX = boardX;
         this.boardY = boardY;
-        normalIcon = new ImageIcon();
-        highlightedIcon = new ImageIcon();
+        normalIcon = new ImageIcon(imagefile);
+        highlightedIcon = new ImageIcon(highlightedImageFile);
 
     }
     public ImageIcon getNormalIcon(){
