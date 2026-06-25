@@ -17,6 +17,7 @@ public class ComponentGamePanel extends GamePanel {
         labels = new ArrayList<>();
         chessfield = new ArrayList<>();
         ChessPieceMouseListener listener = new ChessPieceMouseListener(this);
+        ChessPieceMouseListener listener1 = new ChessPieceMouseListener(this);
         ChessBoard sprite1 = getBoard();
 
         for(int i = 0; i< sprite1.getFields().length; i++){
@@ -40,6 +41,7 @@ public class ComponentGamePanel extends GamePanel {
         for (int i = 0; i < labels.size(); i++) {
             add(labels.get(i));
             labels.get(i).addMouseListener(listener);
+            labels.get(i).addMouseMotionListener(listener1);
         }
         for (int i = 0; i < chessfield.size(); i++) {
             add(chessfield.get(i));

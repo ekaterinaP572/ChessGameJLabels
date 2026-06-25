@@ -6,8 +6,9 @@ import chess.ui.GamePanel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class ChessPieceMouseListener implements MouseListener {
+public class ChessPieceMouseListener implements MouseListener, MouseMotionListener {
     private GamePanel panel;
     int count;
 
@@ -235,7 +236,6 @@ public class ChessPieceMouseListener implements MouseListener {
                         }
                     }
                 }
-
             }
             count--;
         }
@@ -244,15 +244,47 @@ public class ChessPieceMouseListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        Component c = e.getComponent();
         System.out.println("mouse pressed");
+        Component c = e.getComponent();
+        if (c instanceof PieceLabel piece) {
+            ChessSprite sprite = piece.getSprite();
+            if (sprite instanceof Pawn pawn) {
+                pawn.setHighlighted(true);
+
+                for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
+                    for (int j = 0; j < panel.getBoard().getFields().length; j++) {
+                        if (pawn.canMoveTo(pawn.getBoardX(), pawn.getBoardY())) {
+                            panel.getBoard().getFields()[i1][j].setHighlighted(true);
+
+                        }
+                    }
+                }
+
+            }
+        }
+        panel.updateGUI();
     }
     @Override
     public void mouseReleased(MouseEvent e) {
         Component c = e.getComponent();
-        System.out.println("mouse released");
-    }
-
+        if (c instanceof PieceLabel piece) {
+            ChessSprite sprite = piece.getSprite();
+            if (sprite instanceof Pawn pawn) {
+                pawn.setHighlighted(false);
+            }else if (sprite instanceof Rook rook){
+                rook.setHighlighted(false);
+            }else if (sprite instanceof Bishop bishop){
+                bishop.setHighlighted(false);
+            }else if (sprite instanceof Knight knight){
+                knight.setHighlighted(false);
+            }else if (sprite instanceof King king){
+                king.setHighlighted(false);
+            }else if (sprite instanceof Queen queen){
+                queen.setHighlighted(false);
+            }
+        }
+        panel.updateGUI();
+        }
 
     @Override
     public void mouseExited(MouseEvent e) {
@@ -327,4 +359,92 @@ public class ChessPieceMouseListener implements MouseListener {
        }
             panel.updateGUI();
         }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+        Component c = e.getComponent();
+        if (c instanceof PieceLabel piece) {
+            if (piece != null) {
+                ChessSprite sprite = piece.getSprite();
+                if (sprite instanceof Pawn pawn) {
+                    pawn.setHighlighted(true);
+                    int newPositionX = piece.getX() + e.getX();
+                    int newPositionY = piece.getY() + e.getY();
+
+                    piece.setLocation(newPositionX, newPositionY);
+                    double newX1 = Math.round((double)newPositionX/60.0);
+                    double newY1 = Math.round((double)newPositionY/60.0);
+                    pawn.setBoardX((int)newX1);
+                    pawn.setBoardY((int)newY1);
+
+                } else if (sprite instanceof Rook rook) {
+                    rook.setHighlighted(true);
+                    int newPositionX = piece.getX() + e.getX();
+                    int newPositionY = piece.getY() + e.getY();
+
+                    piece.setLocation(newPositionX, newPositionY);
+                    double newX1 = Math.round((double)newPositionX/60.0);
+                    double newY1 = Math.round((double)newPositionY/60.0);
+                    rook.setBoardX((int)newX1);
+                    rook.setBoardY((int)newY1);
+
+                    piece.setLocation(newPositionX, newPositionY);
+                } else if (sprite instanceof Bishop bishop) {
+                    bishop.setHighlighted(true);
+                    int newPositionX = piece.getX() + e.getX();
+                    int newPositionY = piece.getY() + e.getY();
+
+                    piece.setLocation(newPositionX, newPositionY);
+                    double newX1 = Math.round((double)newPositionX/60.0);
+                    double newY1 = Math.round((double)newPositionY/60.0);
+                    bishop.setBoardX((int)newX1);
+                    bishop.setBoardY((int)newY1);
+
+                    piece.setLocation(newPositionX, newPositionY);
+                } else if (sprite instanceof Knight knight) {
+                    knight.setHighlighted(true);
+                    int newPositionX = piece.getX() + e.getX();
+                    int newPositionY = piece.getY() + e.getY();
+
+                    piece.setLocation(newPositionX, newPositionY);
+                    double newX1 = Math.round((double)newPositionX/60.0);
+                    double newY1 = Math.round((double)newPositionY/60.0);
+                    knight.setBoardX((int)newX1);
+                    knight.setBoardY((int)newY1);
+
+                } else if (sprite instanceof King king) {
+                    king.setHighlighted(true);
+                    int newPositionX = piece.getX() + e.getX();
+                    int newPositionY = piece.getY() + e.getY();
+
+                    piece.setLocation(newPositionX, newPositionY);
+                    double newX1 = Math.round((double)newPositionX/60.0);
+                    double newY1 = Math.round((double)newPositionY/60.0);
+                    king.setBoardX((int)newX1);
+                    king.setBoardY((int)newY1);
+
+                    piece.setLocation(newPositionX, newPositionY);
+                } else if (sprite instanceof Queen queen) {
+                    queen.setHighlighted(true);
+                    int newPositionX = piece.getX() + e.getX();
+                    int newPositionY = piece.getY() + e.getY();
+
+                    piece.setLocation(newPositionX, newPositionY);
+                    double newX1 = Math.round((double)newPositionX/60.0);
+                    double newY1 = Math.round((double)newPositionY/60.0);
+                   queen.setBoardX((int)newX1);
+                   queen.setBoardY((int)newY1);
+
+                }
+            }
+        }
+        panel.updateGUI();
+    }
+
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
 }
