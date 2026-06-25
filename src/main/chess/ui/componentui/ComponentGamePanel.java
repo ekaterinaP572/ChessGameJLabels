@@ -1,35 +1,60 @@
 package chess.ui.componentui;
 
-import chess.pieces.ChessBoard;
-import chess.pieces.ChessField;
-import chess.pieces.ChessSprite;
+import chess.pieces.*;
 import chess.ui.GamePanel;
 
 import java.util.ArrayList;
 
 public class ComponentGamePanel extends GamePanel {
     private ArrayList<PieceLabel> labels;
+    private ArrayList<PieceLabel> chessfield;
     private ChessField sprite;
+
 
 
     public ComponentGamePanel(int fieldSize){
         super(fieldSize);
         labels = new ArrayList<>();
+        chessfield = new ArrayList<>();
+        ChessPieceMouseListener listener = new ChessPieceMouseListener(this);
+        ChessBoard sprite1 = getBoard();
 
-        //ChessField sprite = new ChessField(0, 0, ChessSprite.Color.WHITE);
-        ChessBoard sprite1 = new ChessBoard();
-        sprite1.getFields();
-        for(int i = 0; i< gerBoard().getFields().length; i++){
-            sprite = new ChessField(sprite.getBoardX(), sprite.getBoardY(), ChessSprite.Color.WHITE);
-            PieceLabel pieceLabel = new PieceLabel(sprite);
-            labels.add(pieceLabel);
+        for(int i = 0; i< sprite1.getFields().length; i++){
+            for (int j = 0; j < sprite1.getFields().length; j++) {
+
+               sprite = getBoard().getFields()[i][j];
+                PieceLabel pieceLabel = new PieceLabel(sprite);
+                pieceLabel.setBounds(sprite.getBoardX() * getfieldSize(), sprite.getBoardY() * getfieldSize(),
+                        getfieldSize(), getfieldSize());
+                chessfield.add(pieceLabel);
+            }
         }
-      //  ChessField sprite = new ChessField(gerBoard().)
-     //   PieceLabel pieceLabel new PieceLabel(gerBoard().)
-       // ChessField sprite = new ChessField(0, 0, ChessSprite.Color.WHITE);
+
+       for (int i = 0; i < sprite1.getPieces().size() ; i++) {
+            ChessPiece piece = sprite1.getPieces().get(i);
+            PieceLabel pieceLabel = new PieceLabel(sprite1.getPieces().get(i));
+            pieceLabel.setBounds(piece.getBoardX() * getfieldSize(), piece.getBoardY() * getfieldSize(),
+                    getfieldSize(), getfieldSize());
+            labels.add(pieceLabel);
+       }
+        for (int i = 0; i < labels.size(); i++) {
+            add(labels.get(i));
+            labels.get(i).addMouseListener(listener);
+        }
+        for (int i = 0; i < chessfield.size(); i++) {
+            add(chessfield.get(i));
+            chessfield.get(i).addMouseListener(listener);
+        }
+
 
     }
-    public void updateGUI(){
-
+    public void updateGUI() {
+        for(PieceLabel l : labels) {
+            l.updateIcon();
+        }
+        for(PieceLabel f : chessfield){
+            f.updateIcon();
+        }
+        repaint();
     }
 }

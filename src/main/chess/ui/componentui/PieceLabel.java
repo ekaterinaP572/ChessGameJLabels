@@ -1,6 +1,7 @@
 package chess.ui.componentui;
 
 import chess.pieces.ChessField;
+import chess.pieces.ChessPiece;
 import chess.pieces.ChessSprite;
 
 import javax.swing.*;
@@ -12,7 +13,6 @@ public class PieceLabel extends JLabel {
 
         this.sprite = sprite;
        setIcon(sprite.getCurrentIcon());
-       // updateIcon();
     }
     public ChessSprite getSprite(){
         return sprite;

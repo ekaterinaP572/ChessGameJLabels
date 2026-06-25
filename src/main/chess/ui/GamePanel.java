@@ -14,25 +14,19 @@ public abstract class GamePanel extends JPanel {
 
 
     public GamePanel(int fieldSize) {
+        this.fieldSize = fieldSize;
         board = new ChessBoard();
         setLayout(null);
         setSize(new Dimension(8 * this.getfieldSize(),
                 8 * this.getfieldSize()));
-        /*ChessField testSprite = new ChessField(0, 0, ChessSprite.Color.WHITE);
-        PieceLabel testLabel = new PieceLabel(testSprite);
-        testLabel.setBounds(0, 0, 60, 60);
-        add(testLabel);
-        testSprite = new ChessField(0, 0, ChessSprite.Color.BLACK);
-        testLabel = new PieceLabel(testSprite);
-        testLabel.setBounds(0, 60, 60, 60);
-        add(testLabel);
-*/
+        setPreferredSize(new Dimension(8 * this.getfieldSize(),
+                8 * this.getfieldSize()));
 
     }
     public int getfieldSize(){
         return fieldSize;
     }
-    public ChessBoard gerBoard(){
+    public ChessBoard getBoard(){
         return board;
     }
     public abstract void updateGUI();
