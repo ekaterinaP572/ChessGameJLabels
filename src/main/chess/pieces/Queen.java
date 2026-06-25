@@ -8,6 +8,14 @@ public class Queen extends ChessPiece{
 
     @Override
     public boolean canMoveTo(int x, int y) {
+        for (int i = 1; i <8 ; i++) {
+
+            if ((boardX == x && boardY == y + i)|| (boardX == x && boardY == y-i)
+                    || (boardX == x+i && boardY == y) || (boardX == x-i && boardY == y) ||
+                    boardX == x+i && boardY == y + i || (boardX == x +i && boardY == y-i)
+                    || (boardX == x-i && boardY == y - i) || (boardX == x - i && boardY == y+i)) {
+                return true;}
+        }
         return false;
     }
 }

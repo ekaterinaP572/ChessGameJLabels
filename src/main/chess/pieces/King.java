@@ -8,11 +8,16 @@ public class King extends ChessPiece {
 
     @Override
     public boolean canMoveTo(int x, int y) {
-        if (boardX == x && (boardY == y + 2 || boardY == y + 1)) {
-            return true;}
-            else{
-                return false;
-            }
+
+        if ((boardX == x - 1 && boardY == y) || (boardX == x + 1 && boardY == y)
+                || (boardX == x && boardY == y+1) || (boardX == x && boardY == y - 1) ||
+                boardX == x + 1 && boardY == y + 1 || (boardX == x + 1 && boardY == y - 1)
+                || (boardX == x - 1 && boardY == y - 1) || (boardX == x - 1 && boardY == y + 1)) {
+            return true;
         }
+
+        return false;
+
     }
 }
+
