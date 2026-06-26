@@ -14,7 +14,7 @@ public abstract class ChessPiece extends ChessSprite {
         return color;
     }
     public abstract boolean canMoveTo(int x, int y);
-public ChessBoard getBoard(){
+    public ChessBoard getBoard(){
     return board;
 }
 }

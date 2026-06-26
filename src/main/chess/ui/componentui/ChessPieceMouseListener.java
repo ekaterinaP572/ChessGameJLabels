@@ -17,7 +17,6 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
         this.panel = panel;
         this.count=0;
 
-
     }
     @Override
     public void mouseEntered(MouseEvent e) {
@@ -244,25 +243,6 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("mouse pressed");
-        Component c = e.getComponent();
-        if (c instanceof PieceLabel piece) {
-            ChessSprite sprite = piece.getSprite();
-            if (sprite instanceof Pawn pawn) {
-                pawn.setHighlighted(true);
-
-                for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                    for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                        if (pawn.canMoveTo(pawn.getBoardX(), pawn.getBoardY())) {
-                            panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                        }
-                    }
-                }
-
-            }
-        }
-        panel.updateGUI();
     }
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -365,7 +345,6 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
 
         Component c = e.getComponent();
         if (c instanceof PieceLabel piece) {
-            if (piece != null) {
                 ChessSprite sprite = piece.getSprite();
                 if (sprite instanceof Pawn pawn) {
                     pawn.setHighlighted(true);
@@ -379,7 +358,7 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
                     pawn.setBoardY((int)newY1);
 
                 } else if (sprite instanceof Rook rook) {
-                    rook.setHighlighted(true);
+                   rook.setHighlighted(true);
                     int newPositionX = piece.getX() + e.getX();
                     int newPositionY = piece.getY() + e.getY();
 
@@ -437,7 +416,6 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
                    queen.setBoardY((int)newY1);
 
                 }
-            }
         }
         panel.updateGUI();
     }

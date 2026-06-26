@@ -7,8 +7,8 @@ import java.awt.*;
 public class ChessGame extends JFrame {
     public ChessGame(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-                add(new ComponentGamePanel(60));
-                pack();
+        add(new ComponentGamePanel(60));
+        pack();
         setResizable(false);
 
     }

@@ -41,7 +41,7 @@ public class ComponentGamePanel extends GamePanel {
         for (int i = 0; i < labels.size(); i++) {
             add(labels.get(i));
             labels.get(i).addMouseListener(listener);
-            labels.get(i).addMouseMotionListener(listener1);
+            labels.get(i).addMouseMotionListener(listener1 );
         }
         for (int i = 0; i < chessfield.size(); i++) {
             add(chessfield.get(i));
