@@ -26,67 +26,18 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
             Component c = e.getComponent();
             if (c instanceof PieceLabel piece) {
                 ChessSprite sprite = piece.getSprite();
-                if (sprite instanceof Pawn pawn) {
-                    pawn.setHighlighted(true);
+                if (sprite instanceof ChessPiece piece1) {
+                    piece1.setHighlighted(true);
                     for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
                         for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (pawn.canMoveTo(i1, j)) {
+                            if (piece1.canMoveTo(i1, j)) {
                                 panel.getBoard().getFields()[i1][j].setHighlighted(true);
 
                             }
                         }
                     }
-                } else if (sprite instanceof Rook rook) {
-                    rook.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (rook.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Knight knight) {
-                    knight.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (knight.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Bishop bishop) {
-                    bishop.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (bishop.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof King king) {
-                    king.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (king.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Queen queen) {
-                    queen.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (queen.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else {
+                }
+                else {
                     panel.getBoard().unhighlightAll();
                 }
 
@@ -104,66 +55,16 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
             Component c = e.getComponent();
             if (c instanceof PieceLabel piece) {
                 ChessSprite sprite = piece.getSprite();
-                if (sprite instanceof Pawn pawn) {
-                    pawn.setHighlighted(true);
+                if (sprite instanceof ChessPiece piece1) {
+                    piece1.setHighlighted(true);
                     for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
                         for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (pawn.canMoveTo(i1, j)) {
+                            if (piece1.canMoveTo(i1, j)) {
                                 panel.getBoard().getFields()[i1][j].setHighlighted(true);
                             }
                         }
                     }
 
-                } else if (sprite instanceof Rook rook) {
-                    rook.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (rook.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Knight knight) {
-                    knight.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (knight.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Bishop bishop) {
-                    bishop.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (bishop.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof King king) {
-                    king.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (king.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Queen queen) {
-                    queen.setHighlighted(true);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (queen.canMoveTo(i1, j)) {
-                                panel.getBoard().getFields()[i1][j].setHighlighted(true);
-
-                            }
-                        }
-                    }
                 }
             }
             count++;
@@ -173,62 +74,11 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
             Component c = e.getComponent();
             if (c instanceof PieceLabel piece) {
                 ChessSprite sprite = piece.getSprite();
-                if (sprite instanceof Pawn pawn) {
-                    pawn.setHighlighted(false);
+                if (sprite instanceof ChessPiece piece1) {
+                    piece1.setHighlighted(false);
                     for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
                         for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (pawn.canMoveTo(i1, j)) {
-                                panel.getBoard().unhighlightAll();
-
-                            }
-                        }
-                    }
-                }
-                else if (sprite instanceof Rook rook) {
-                    rook.setHighlighted(false);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (rook.canMoveTo(i1, j)) {
-                                panel.getBoard().unhighlightAll();
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Knight knight) {
-                    knight.setHighlighted(false);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (knight.canMoveTo(i1, j)) {
-                                panel.getBoard().unhighlightAll();
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Bishop bishop) {
-                    bishop.setHighlighted(false);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (bishop.canMoveTo(i1, j)) {
-                                panel.getBoard().unhighlightAll();
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof King king) {
-                    king.setHighlighted(false);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (king.canMoveTo(i1, j)) {
-                                panel.getBoard().unhighlightAll();
-
-                            }
-                        }
-                    }
-                } else if (sprite instanceof Queen queen) {
-                    queen.setHighlighted(false);
-                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                            if (queen.canMoveTo(i1, j)) {
+                            if (piece1.canMoveTo(i1, j)) {
                                 panel.getBoard().unhighlightAll();
 
                             }
@@ -249,175 +99,56 @@ public class ChessPieceMouseListener implements MouseListener, MouseMotionListen
         Component c = e.getComponent();
         if (c instanceof PieceLabel piece) {
             ChessSprite sprite = piece.getSprite();
-            if (sprite instanceof Pawn pawn) {
-                pawn.setHighlighted(false);
-            }else if (sprite instanceof Rook rook){
-                rook.setHighlighted(false);
-            }else if (sprite instanceof Bishop bishop){
-                bishop.setHighlighted(false);
-            }else if (sprite instanceof Knight knight){
-                knight.setHighlighted(false);
-            }else if (sprite instanceof King king){
-                king.setHighlighted(false);
-            }else if (sprite instanceof Queen queen){
-                queen.setHighlighted(false);
+            if (sprite instanceof ChessPiece piece1) {
+                piece1.setHighlighted(false);
             }
+            panel.updateGUI();
         }
-        panel.updateGUI();
-        }
+    }
 
     @Override
     public void mouseExited(MouseEvent e) {
-       if(count==1){}
-       else {
-           Component c = e.getComponent();
-           if (c instanceof PieceLabel piece) {
-               ChessSprite sprite = piece.getSprite();
-               if (sprite instanceof Pawn pawn) {
-                   pawn.setHighlighted(false);
-                   for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                       for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                           if (pawn.canMoveTo(i1, j)) {
-                               panel.getBoard().unhighlightAll();
+        if (count == 1) {
+        } else {
+            Component c = e.getComponent();
+            if (c instanceof PieceLabel piece) {
+                ChessSprite sprite = piece.getSprite();
+                if (sprite instanceof ChessPiece piece1) {
+                    piece1.setHighlighted(false);
+                    for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
+                        for (int j = 0; j < panel.getBoard().getFields().length; j++) {
+                            if (piece1.canMoveTo(i1, j)) {
+                                panel.getBoard().unhighlightAll();
 
-                           }
-                       }
-                   }
-
-               } else if (sprite instanceof Rook rook) {
-                   rook.setHighlighted(false);
-                   for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                       for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                           if (rook.canMoveTo(i1, j)) {
-                               panel.getBoard().unhighlightAll();
-
-                           }
-                       }
-                   }
-               } else if (sprite instanceof Knight knight) {
-                   knight.setHighlighted(false);
-                   for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                       for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                           if (knight.canMoveTo(i1, j)) {
-                               panel.getBoard().unhighlightAll();
-
-                           }
-                       }
-                   }
-               } else if (sprite instanceof Bishop bishop) {
-                   bishop.setHighlighted(false);
-                   for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                       for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                           if (bishop.canMoveTo(i1, j)) {
-                               panel.getBoard().unhighlightAll();
-
-                           }
-                       }
-                   }
-               } else if (sprite instanceof King king) {
-                   king.setHighlighted(false);
-                   for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                       for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                           if (king.canMoveTo(i1, j)) {
-                               panel.getBoard().unhighlightAll();
-
-                           }
-                       }
-                   }
-               } else if (sprite instanceof Queen queen) {
-                   queen.setHighlighted(false);
-                   for (int i1 = 0; i1 < panel.getBoard().getFields().length; i1++) {
-                       for (int j = 0; j < panel.getBoard().getFields().length; j++) {
-                           if (queen.canMoveTo(i1, j)) {
-                               panel.getBoard().unhighlightAll();
-
-                           }
-                       }
-                   }
-               }
-           }
-       }
+                            }
+                        }
+                    }
+                }
+            }
             panel.updateGUI();
-        }
 
+        }
+    }
     @Override
     public void mouseDragged(MouseEvent e) {
 
         Component c = e.getComponent();
         if (c instanceof PieceLabel piece) {
-                ChessSprite sprite = piece.getSprite();
-                if (sprite instanceof Pawn pawn) {
-                    pawn.setHighlighted(true);
-                    int newPositionX = piece.getX() + e.getX();
-                    int newPositionY = piece.getY() + e.getY();
+            ChessSprite sprite = piece.getSprite();
+            if (sprite instanceof ChessPiece piece1) {
+                piece1.setHighlighted(true);
+                int newPositionX = piece.getX() + e.getX();
+                int newPositionY = piece.getY() + e.getY();
 
-                    piece.setLocation(newPositionX, newPositionY);
-                    double newX1 = Math.round((double)newPositionX/60.0);
-                    double newY1 = Math.round((double)newPositionY/60.0);
-                    pawn.setBoardX((int)newX1);
-                    pawn.setBoardY((int)newY1);
+                piece.setLocation(newPositionX, newPositionY);
+                double newX1 = Math.round((double) newPositionX / 60.0);
+                double newY1 = Math.round((double) newPositionY / 60.0);
+                piece1.setBoardX((int) newX1);
+                piece1.setBoardY((int) newY1);
 
-                } else if (sprite instanceof Rook rook) {
-                   rook.setHighlighted(true);
-                    int newPositionX = piece.getX() + e.getX();
-                    int newPositionY = piece.getY() + e.getY();
-
-                    piece.setLocation(newPositionX, newPositionY);
-                    double newX1 = Math.round((double)newPositionX/60.0);
-                    double newY1 = Math.round((double)newPositionY/60.0);
-                    rook.setBoardX((int)newX1);
-                    rook.setBoardY((int)newY1);
-
-                    piece.setLocation(newPositionX, newPositionY);
-                } else if (sprite instanceof Bishop bishop) {
-                    bishop.setHighlighted(true);
-                    int newPositionX = piece.getX() + e.getX();
-                    int newPositionY = piece.getY() + e.getY();
-
-                    piece.setLocation(newPositionX, newPositionY);
-                    double newX1 = Math.round((double)newPositionX/60.0);
-                    double newY1 = Math.round((double)newPositionY/60.0);
-                    bishop.setBoardX((int)newX1);
-                    bishop.setBoardY((int)newY1);
-
-                    piece.setLocation(newPositionX, newPositionY);
-                } else if (sprite instanceof Knight knight) {
-                    knight.setHighlighted(true);
-                    int newPositionX = piece.getX() + e.getX();
-                    int newPositionY = piece.getY() + e.getY();
-
-                    piece.setLocation(newPositionX, newPositionY);
-                    double newX1 = Math.round((double)newPositionX/60.0);
-                    double newY1 = Math.round((double)newPositionY/60.0);
-                    knight.setBoardX((int)newX1);
-                    knight.setBoardY((int)newY1);
-
-                } else if (sprite instanceof King king) {
-                    king.setHighlighted(true);
-                    int newPositionX = piece.getX() + e.getX();
-                    int newPositionY = piece.getY() + e.getY();
-
-                    piece.setLocation(newPositionX, newPositionY);
-                    double newX1 = Math.round((double)newPositionX/60.0);
-                    double newY1 = Math.round((double)newPositionY/60.0);
-                    king.setBoardX((int)newX1);
-                    king.setBoardY((int)newY1);
-
-                    piece.setLocation(newPositionX, newPositionY);
-                } else if (sprite instanceof Queen queen) {
-                    queen.setHighlighted(true);
-                    int newPositionX = piece.getX() + e.getX();
-                    int newPositionY = piece.getY() + e.getY();
-
-                    piece.setLocation(newPositionX, newPositionY);
-                    double newX1 = Math.round((double)newPositionX/60.0);
-                    double newY1 = Math.round((double)newPositionY/60.0);
-                   queen.setBoardX((int)newX1);
-                   queen.setBoardY((int)newY1);
-
-                }
+            }
+            panel.updateGUI();
         }
-        panel.updateGUI();
     }
 
 
